@@ -4,6 +4,8 @@ class GetWordsCombinations {
   listOfWordsBuilt: string[];
   realWordsBuilt: string[];
   tempWord: string;
+  currentLetter: number;
+  currentArray: number;
 
   constructor(allLetters: string[][], listOfRealWords: string[]) {
     this.cubeLetters = allLetters;
@@ -15,9 +17,12 @@ class GetWordsCombinations {
     if(this.cubeLetters.length === 1) {
       return this.cubeLetters;
     } else {
+      this.currentLetter = 0;
+      this.currentArray = 0;
       for(let array in this.cubeLetters) {
-        for(let word in this.cubeLetters[array]) {
-          this.tempWord += this.cubeLetters[array][word]
+        for(let letter in this.cubeLetters[this.currentArray]) {
+          this.tempWord += this.cubeLetters[this.currentArray][this.currentLetter]
+          this.currentArray++;
         }
         console.log(`Word: ${this.tempWord}`);
         this.tempWord = '';

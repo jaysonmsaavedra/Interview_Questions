@@ -9,9 +9,12 @@ var GetWordsCombinations = /** @class */ (function () {
             return this.cubeLetters;
         }
         else {
+            this.currentLetter = 0;
+            this.currentArray = 0;
             for (var array in this.cubeLetters) {
-                for (var word in this.cubeLetters[array]) {
-                    this.tempWord += this.cubeLetters[array][word];
+                for (var letter in this.cubeLetters[this.currentArray]) {
+                    this.tempWord += this.cubeLetters[this.currentArray][this.currentLetter];
+                    this.currentArray++;
                 }
                 console.log("Word: " + this.tempWord);
                 this.tempWord = '';
